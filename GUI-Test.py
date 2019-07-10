@@ -627,13 +627,14 @@ class CalibrationWindow(QMainWindow):
         
     def readrgb(self):
         if(Msg.Calibration6flag == 1):
-            R1,G1,B1,A = returnrgb(Msg.Calibration1)
-            R2,G2,B2,A = returnrgb(Msg.Calibration2)
-            R3,G3,B3,A = returnrgb(Msg.Calibration3)
-            R4,G4,B4,A = returnrgb(Msg.Calibration4)
-            R5,G5,B5,A = returnrgb(Msg.Calibration5)
-            R6,G6,B6,A = returnrgb(Msg.Calibration6)
-
+            
+            R1,G1,B1 = returnrgb(Msg.Calibration1)
+            R2,G2,B2 = returnrgb(Msg.Calibration2)
+            R3,G3,B3 = returnrgb(Msg.Calibration3)
+            R4,G4,B4 = returnrgb(Msg.Calibration4)
+            R5,G5,B5 = returnrgb(Msg.Calibration5)
+            R6,G6,B6 = returnrgb(Msg.Calibration6)
+            
             if B1 == 0:
                 B1 = 1
             if B2 == 0:
@@ -884,7 +885,7 @@ class VideoWindow(QMainWindow):
         if(Msg.cutflag==1):
             os.system("start explorer videocache")
         else:
-            self.statusBar().showMessage('本次程序运行时并没有分割过视NumPy频，请尝试再运行一次分割。')
+            self.statusBar().showMessage('本次程序运行时并没有分割过视频，请尝试再运行一次分割。')
 
     #视频切割
     def videocut(self):
